@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+$p-pale-blue: hsl(225, 100%, 94%);
+$p-bright-blue: hsl(245, 75%, 52%);
+$n-pale-blue: hsl(228, 100%, 98%);
+$n-desaturated-blue: hsl(224, 23%, 55%);
+$n-dark-blue: hsl(223, 47%, 23%);
+
+$font-stack: 'Red Hat Display', sans-serif;
+$fs-paragraph: 1rem;
+
+$layout-breakpoint-small: 576px;
+
+body {
+  font: 100% $font-stack;
+  color: $n-dark-blue;
+  min-height: 100vh;
+  background: no-repeat top center
+    url('../images/pattern-background-desktop.svg') $p-pale-blue;
+
+  @media (max-width: $layout-breakpoint-small) {
+    background: no-repeat top center
+      url('../images/pattern-background-mobile.svg') $p-pale-blue;
+  }
+}
+
+main {
+  display: grid;
+  place-items: center;
+  min-height: calc(100vh - 2rem);
+  padding: 1rem;
+}
+
+.card {
+  max-width: 450px;
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 15px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    font-size: 1.75rem;
+    font-weight: 900;
+
+    @media (max-width: $layout-breakpoint-small) {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.card__content {
+  display: grid;
+  text-align: center;
+  gap: 1.25rem;
+  padding: 3rem;
+
+  & > p {
+    color: $n-desaturated-blue;
+    line-height: 1.5;
+
+    @media (max-width: $layout-breakpoint-small) {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  @media (max-width: $layout-breakpoint-small) {
+    padding: 2rem 1rem;
+  }
+}
+
+.card__plan {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  background: $n-pale-blue;
+  padding: 1.5rem;
+  border-radius: 10px;
+
+  div {
+    flex: 1;
+    display: grid;
+    gap: 0.3rem;
+    text-align: left;
+  }
+
+  & p:first-of-type {
+    font-weight: 900;
+  }
+
+  & p:last-of-type {
+    color: $n-desaturated-blue;
+  }
+
+  a {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: $p-bright-blue;
+    transition: opacity 300ms ease;
+  }
+
+  a:hover {
+    opacity: 0.7;
+    text-decoration: none;
+  }
+
+  @media (max-width: $layout-breakpoint-small) {
+    padding: 1rem;
+  }
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  font-weight: 900;
+  font-size: $fs-paragraph;
+  cursor: pointer;
+}
+
+.btn-proceed {
+  background: $p-bright-blue;
+  border-radius: 10px;
+  color: white;
+  padding: 1rem;
+  box-shadow: 2px 5px 10px $p-pale-blue;
+  transition: opacity 300ms ease;
+  margin-top: 1rem;
+}
+
+.btn-proceed:hover {
+  opacity: 0.8;
+}
+
+.btn-cancel {
+  width: max-content;
+  margin: 2rem auto 0 auto;
+  color: $n-desaturated-blue;
+  transition: color 300ms ease;
+}
+
+.btn-cancel:hover {
+  color: $n-dark-blue;
+}
+
+footer {
+  height: 2vh;
+  font-size: 11px;
+  text-align: center;
+
+  a {
+    color: hsl(228, 45%, 44%);
+  }
+}
